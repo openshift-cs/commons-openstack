@@ -1,0 +1,43 @@
+<% content_for :javascript do %>
+// fetch openshift-commons tagged articles only
+$(document).ready(function () {
+  var feedUrl = 'https://blog.openshift.com/category/openshift-commons/feed/';
+  var maxItems = 6;
+  var blogFeedContainer = $("#blog-feed");
+
+  var blogItemHtml = function(link, title, date) {
+    var blogDate = new Date(date);
+    var dateFormat = { year: 'numeric', month: 'short', day: 'numeric' };
+    htmlTemplate = '<div class="col-xs-12"><div class="blog-article"><div class="row"><div class="blog-item"><a href="' + link + '">' + title + '</a><p class="small">' + blogDate.toLocaleDateString("en-us", dateFormat) + '</p></div></div></div></div>';
+    return htmlTemplate;
+  };
+
+  $.ajax({
+    url: feedUrl,
+    accepts:{
+			xml:"application/rss+xml"
+		},
+    dataType: "xml",
+    error: function() {
+      console.log("Error occurred while getting blog RSS feed from " + this.url);
+    },
+    success: function(response) {
+      console.log("Blog feed retrieved.");
+      var output = "";
+      $(response).find("item").slice(0, maxItems).each(function () {
+				var el = $(this);
+        output += blogItemHtml(el.find("link").text(), el.find("title").text(), el.find("pubDate").text())
+      });
+      blogFeedContainer.html(output);
+    }
+  });
+});
+<% end %>
+
+<div id="blog-feed">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <i class="fa fa-cog fa-spin fa-2x" aria-hidden="true"></i>
+    </div>
+  </div>
+</div>
