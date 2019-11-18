@@ -1,7 +1,7 @@
 ###
 # Settings
 ###
-set :site_title, "OpenShift Commons"
+set :site_title, "Red Hat OpenStack Commons"
 set :site_url, 'https://commons.openshift.org/'
 set :openshift_assets, 'https://assets.openshift.net/content'
 
