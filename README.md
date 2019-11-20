@@ -1,8 +1,8 @@
 # OpenShift Commons
 
-[![Build Status](https://travis-ci.org/openshift/commons.openshift.org.svg?branch=master)](https://travis-ci.org/openshift/commons.openshift.org)
+[![Build Status](https://commons-openstack-commons-openstack.apps.openshift-web.p0s5.p1.openshiftapps.com/?branch=master)](https://commons-openstack-commons-openstack.apps.openshift-web.p0s5.p1.openshiftapps.com/)
 
-This repo contains the sources for the [OpenShift Commons](https://commons.openshift.org/).
+This repo contains the sources for the [Red Hat OpenStack Commons](https://commons-openstack-commons-openstack.apps.openshift-web.p0s5.p1.openshiftapps.com/).
 
 ## Development
 
@@ -17,13 +17,7 @@ should be able to preview your changes at http://localhost:4567
 
 ## Deployment
 
-To deploy your changes to http://commons.openshift.org/ you need to have your
-ssh key set up with the current Openshift app (or be on osdevelopers), and then execute:
-
-    bundle exec middleman deploy
-
-This makes sure that `middleman build` is also executed and **all the current** changes on the folder will be deployed (including uncommitted ones).
-
+To deploy your changes to https://commons-openstack-commons-openstack.apps.openshift-web.p0s5.p1.openshiftapps.com/ you need to commit and merge your changes in GitHub:
 
 ## Environment variables
 
